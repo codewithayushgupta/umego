@@ -41,7 +41,7 @@ export default function Home() {
 
   return (
     <main className="flex flex-col items-center justify-center min-h-screen p-4">
-      <h1 className="text-3xl font-bold mb-4">Welcome to Umego 👋</h1>
+      <h1 className="text-3xl font-bold mb-4">Welcome to umigo 👋</h1>
       {user ? (
         <>
           <img src={user.photoURL} className="rounded-full w-16 h-16 mb-2" />
