@@ -4,6 +4,8 @@ import { useEffect, useState } from 'react';
 import { useRouter } from 'next/navigation';
 import { auth, provider } from '@/lib/firebase';
 import { signInWithPopup, onAuthStateChanged, signOut } from 'firebase/auth';
+import Image from "next/image";
+
 
 export default function ProfilePage() {
   const [user, setUser] = useState(null);
@@ -69,7 +71,7 @@ export default function ProfilePage() {
   if (!user) {
     return (
       <div className="flex flex-col items-center justify-center min-h-screen p-6 text-center">
-        <h2 className="text-2xl font-bold mb-4">You're not logged in</h2>
+        <h2 className="text-2xl font-bold mb-4">You&apos;re  not logged in</h2>
         <button
           onClick={handleLogin}
           className="bg-blue-600 text-white px-6 py-2 rounded"
@@ -84,11 +86,13 @@ export default function ProfilePage() {
     <div className="min-h-screen px-6 py-10 bg-[#fffdf8] text-gray-800">
       <div className="max-w-md mx-auto bg-white shadow-xl rounded-3xl p-6 space-y-6">
         <div className="flex flex-col items-center text-center">
-          <img
-            src={user.photoURL}
-            alt="Profile"
-            className="w-24 h-24 rounded-full shadow-md mb-4"
-          />
+          <Image
+  src={user.photoURL}
+  alt={user.displayName || "Profile Picture"}
+  width={80}
+  height={80}
+  className="h-20 w-20 rounded-full"
+/>
           <h2 className="text-xl font-semibold">{user.displayName}</h2>
           <p className="text-sm text-gray-500">{user.email}</p>
         </div>

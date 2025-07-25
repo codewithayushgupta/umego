@@ -1,6 +1,8 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
+import Image from "next/image";
+
 
 export default function HangoutRequestsPage() {
   const { id } = useParams();
@@ -53,8 +55,13 @@ export default function HangoutRequestsPage() {
           {requests.map((r) => (
             <div key={r._id} className="border p-4 rounded-lg">
               <div className="flex items-center gap-3">
-                <img src={r.user.photoURL} className="w-8 h-8 rounded-full" />
-                <div>
+<Image
+  src={hangout?.createdBy?.photoURL}
+  alt={hangout?.createdBy?.name || "User Photo"}
+  width={40}
+  height={40}
+  className="h-10 w-10 rounded-full"
+/>                <div>
                   <p className="font-semibold">{r.user.name}</p>
                   <p className="text-sm text-gray-500">{r.user.email}</p>
                 </div>

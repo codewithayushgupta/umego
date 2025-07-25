@@ -1,5 +1,7 @@
 "use client";
 import { useEffect, useState } from "react";
+import Image from "next/image";
+
 
 export default function ExplorePage() {
   const [hangouts, setHangouts] = useState([]);
@@ -81,11 +83,13 @@ const sendRequest = async (hangoutId) => {
                 👥 Max: {h.maxPeople}
               </p>
               <div className="flex items-center gap-2 mt-2">
-                <img
-                  src={h.createdBy.photoURL}
-                  alt="creator"
-                  className="w-7 h-7 rounded-full border-2 border-white"
-                />
+               <Image
+  src="/assets/banner.png"
+  alt="Homepage Banner"
+  width={1200}
+  height={400}
+  className="w-full"
+/>
                 <span className="text-sm text-orange-900 font-medium">
                   {h.createdBy.name}
                 </span>

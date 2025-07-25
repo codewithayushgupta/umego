@@ -1,6 +1,8 @@
 'use client';
 import { useEffect, useState } from 'react';
 import { useParams } from 'next/navigation';
+              import Image from "next/image";
+
 
 export default function GlowChat() {
   const { id } = useParams(); // hangoutId
@@ -40,7 +42,12 @@ export default function GlowChat() {
         {messages.map((m, i) => (
           <div key={i} className="mb-2">
             <div className="flex items-center gap-2">
-              <img src={m.sender.photoURL} className="w-6 h-6 rounded-full" />
+<Image
+  src={m.sender.photoURL}
+  alt={"Profile Picture"}
+  className="w-6 h-6 rounded-full"
+/>
+
               <p className="font-semibold text-sm">{m.sender.name}</p>
             </div>
             <p className="ml-8 text-sm">{m.text}</p>
