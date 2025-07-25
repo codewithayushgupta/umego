@@ -46,7 +46,7 @@ const sendRequest = async (hangoutId) => {
   return (
     <div className="max-w-xl mx-auto px-4 py-6">
       <h2 className="text-2xl font-bold mb-6 text-orange-600">
-        What's Happening Near You?
+        What&apos;s Happening Near You?
       </h2>
 
       {loading ? (
